@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
+import { ContextState } from "../context/ContextState";
 
 const todoData = [
   { no: 3, text: "할일 3", edit: false },
@@ -10,15 +11,7 @@ const todoData = [
 function TodoList() {
   const [inputValue, setInputValue] = useState<string>("");
   const [dataList, setDataList] = useState(todoData);
-
-  const today = () => {
-    let today = new Date();
-    let year = today.getFullYear();
-    let month = today.getMonth() + 1;
-    let day = today.getDate();
-
-    return `${year}.${month}.${day}`;
-  };
+  const today = useContext(ContextState);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -36,8 +29,6 @@ function TodoList() {
   // const nextAddNo = useRef(
   //   dataList.length > 0 ? dataList[dataList.length - 1].no : 0
   // );
-
-  console.log(nextAddNo)
 
   const handleClickAdd = () => {
     setDataList([
@@ -84,7 +75,7 @@ function TodoList() {
 
   return (
     <div>
-      <h1>{today()} Todo</h1>
+      <h1>{today} Todo</h1>
       <div>
         <input
           type="text"
