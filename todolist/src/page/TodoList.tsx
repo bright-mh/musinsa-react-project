@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { ContextState } from "../context/ContextState";
+import { TodayContext } from "../Router";
 
 const todoData = [
   { no: 3, text: "할일 3", edit: false },
@@ -11,7 +11,7 @@ const todoData = [
 function TodoList() {
   const [inputValue, setInputValue] = useState<string>("");
   const [dataList, setDataList] = useState(todoData);
-  const today = useContext(ContextState);
+  const today = useContext(TodayContext);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);

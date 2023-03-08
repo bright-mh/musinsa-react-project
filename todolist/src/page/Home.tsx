@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { ContextState } from '../context/ContextState'
+import { TodayContext } from '../Router';
 
 const Home = () => {
-  const today = useContext(ContextState);
+  const today = useContext(TodayContext);
 
   return (
     <>
