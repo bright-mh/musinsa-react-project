@@ -7,7 +7,7 @@ const todoData = [
   { no: 1, text: "할일 1", edit: false },
 ];
 
-function App() {
+function TodoList() {
   const [inputValue, setInputValue] = useState<string>("");
   const [dataList, setDataList] = useState(todoData);
 
@@ -129,4 +129,4 @@ function App() {
   );
 }
 
-export default App;
+export default TodoList;
