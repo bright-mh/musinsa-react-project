@@ -1,7 +1,7 @@
-import React, { createContext, useEffect, useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './page/Home'
-import TodoList from './page/TodoList'
+import React, { createContext, useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './page/Home';
+import TodoList from './page/TodoList';
 
 export const TodayContext = createContext('');
 
@@ -18,8 +18,7 @@ const Router = () => {
         </Routes>
       </BrowserRouter>
     </TodayContext.Provider>
-  
   )
 }
 
-export default Router
+export default Router;
