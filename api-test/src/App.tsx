@@ -5,7 +5,7 @@ interface dataType {
   id: number;
   title: string;
   completed: boolean;
- };
+};
 
 const App = () => {
   const [todoData, setTodoData] = useState<Array<dataType>>([]);
@@ -24,7 +24,6 @@ const App = () => {
     // fetchData().then(data => setTodoData(data));
   }, []);
 
-  console.log(todoData);
   return (
     <div>
       <h1>데이터 가져오기</h1>
