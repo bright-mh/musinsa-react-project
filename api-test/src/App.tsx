@@ -14,9 +14,17 @@ const App = () => {
     fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((data) => setTodoData(data));
+
+    // const fetchData = async() => {
+    //   const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+    //   const result = response.json();
+    //   return result;
+    // }
+    
+    // fetchData().then(data => setTodoData(data));
   }, []);
 
-
+  console.log(todoData);
   return (
     <div>
       <h1>데이터 가져오기</h1>
