@@ -18,6 +18,7 @@ function TodoList() {
   };
 
   // useRef의 no 값은 어떻게 초기화 하는게 좋을까?
+  // no 값만 뽑아서 Math.max()로 값을 찾아서 +1 해준다.
   const sortRefData = JSON.parse(JSON.stringify(dataList));
 
   sortRefData.sort((a: any, b: any) => a.no > b.no ? 1 : -1);
