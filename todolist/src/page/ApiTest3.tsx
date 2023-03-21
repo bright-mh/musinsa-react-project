@@ -22,6 +22,7 @@ const ApiTest3 = () => {
     if (indexNumber === 10) return;
     setIndexNumber(prev => prev + 1);
     setDataList([...dataList, todoData[indexNumber]])
+    // setDataList((prevDataList) =>[...prevDataList, todoData[indexNumber]])
   }
 
   return (

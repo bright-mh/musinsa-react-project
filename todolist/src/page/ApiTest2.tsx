@@ -9,9 +9,24 @@ interface DataType {
 
 const ApiTest2 = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
+  const [no, setNo] = useState(1)
 
-  const handleClickApi = () => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
+
+  /**
+   * 방법1.
+   * no의 상태가 변경될때 useEffect안에서 api call을 한다
+   * useEffect(() => {
+   * ! some api call function
+   * }, [no])
+   * 
+   * 방법2
+   * 핸들러함수내에서 no기준으로 api call을 하고 그 이후에 no를 증가시킨다.
+   * 
+   * 로컬스토리지, 세션스토리지, 쿠키/세션 
+   */
+
+  const handleClickApi = (id?: any) => {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
     .then((response) => response.json())
     .then((data) => setTodoData(data));
   }
