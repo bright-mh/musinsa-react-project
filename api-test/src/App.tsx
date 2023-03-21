@@ -9,6 +9,7 @@ interface dataType {
 
 const App = () => {
   const [todoData, setTodoData] = useState<Array<dataType>>([]);
+  const [isApiCall, setIsApiCall] = useState(false);
 
   useEffect(()  => {
     fetch("https://jsonplaceholder.typicode.com/todos")
@@ -27,10 +28,11 @@ const App = () => {
   return (
     <div>
       <h1>데이터 가져오기</h1>
+      <button onClick={() => setIsApiCall(true)}>API 호출</button>
+      <hr />
       <div>
-        {todoData.map((item, index) => 
+        {isApiCall && todoData.map((item, index) => 
           index < 10 ? 
-          // <div key={item.id}>{JSON.stringify(item)}</div> 
           <div key={item.id}>
             userId: {item.userId}, 
             id: {item.id},
