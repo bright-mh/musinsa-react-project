@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { TodayContext } from "../Router";
 
 const todoData = [
@@ -19,23 +19,25 @@ function TodoList() {
 
   // useRef의 no 값은 어떻게 초기화 하는게 좋을까?
   // no 값만 뽑아서 Math.max()로 값을 찾아서 +1 해준다.
-  const sortRefData = JSON.parse(JSON.stringify(dataList));
-
-  sortRefData.sort((a: any, b: any) => a.no > b.no ? 1 : -1);
-
-  const nextAddNo = useRef(
-    sortRefData.length > 0 ? sortRefData[sortRefData.length - 1].no : 0
-  );
+  
+  // const sortRefData = JSON.parse(JSON.stringify(dataList));
+  // sortRefData.sort((a: any, b: any) => a.no > b.no ? 1 : -1);
+  // const nextAddNo = useRef(
+  //   sortRefData.length > 0 ? sortRefData[sortRefData.length - 1].no : 0
+  // );
 
   // const nextAddNo = useRef(
   //   dataList.length > 0 ? dataList[dataList.length - 1].no : 0
   // );
 
   const handleClickAdd = () => {
+    let noArray = dataList.map(item => item.no);
+    let maxNumber = Math.max(...noArray);
+
     setDataList([
       ...dataList,
       {
-        no: (nextAddNo.current += 1),
+        no: maxNumber += 1,
         text: inputValue,
         edit: false,
       },
