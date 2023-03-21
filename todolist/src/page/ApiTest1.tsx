@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface DataType {
   userId: number;
@@ -7,10 +7,10 @@ interface DataType {
   completed: boolean;
 };
 
-const App = () => {
+const ApiTest1 = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
 
-  const handleClickApi = ()  => {
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((data) => setTodoData(data));
@@ -22,12 +22,11 @@ const App = () => {
     // }
     
     // fetchData().then(data => setTodoData(data));
-  }
+  }, []);
 
   return (
     <div>
       <h1>데이터 가져오기</h1>
-      <button onClick={handleClickApi}>API 호출</button>
       <hr />
       <div>
         {todoData.map((item, index) => 
@@ -45,4 +44,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ApiTest1;

@@ -7,21 +7,13 @@ interface DataType {
   completed: boolean;
 };
 
-const App = () => {
+const ApiTest2 = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
 
-  const handleClickApi = ()  => {
+  const handleClickApi = () => {
     fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((data) => setTodoData(data));
-
-    // const fetchData = async() => {
-    //   const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-    //   const result = response.json();
-    //   return result;
-    // }
-    
-    // fetchData().then(data => setTodoData(data));
+    .then((response) => response.json())
+    .then((data) => setTodoData(data));
   }
 
   return (
@@ -45,4 +37,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ApiTest2;

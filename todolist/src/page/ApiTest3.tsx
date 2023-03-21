@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface DataType {
   userId: number;
@@ -7,21 +7,21 @@ interface DataType {
   completed: boolean;
 };
 
-const App = () => {
+const ApiTest3 = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
+  const [indexNumber, setIndexNumber] = useState<number>(0);
+  const [dataList, setDataList] = useState<Array<DataType>>([]);
 
-  const handleClickApi = ()  => {
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((data) => setTodoData(data));
+  }, []);
 
-    // const fetchData = async() => {
-    //   const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-    //   const result = response.json();
-    //   return result;
-    // }
-    
-    // fetchData().then(data => setTodoData(data));
+  const handleClickApi = () => {
+    if (indexNumber === 10) return;
+    setIndexNumber(prev => prev + 1);
+    setDataList([...dataList, todoData[indexNumber]])
   }
 
   return (
@@ -30,19 +30,17 @@ const App = () => {
       <button onClick={handleClickApi}>API 호출</button>
       <hr />
       <div>
-        {todoData.map((item, index) => 
-          index < 10 ? 
+        {dataList.map(item => (
           <div key={item.id}>
             userId: {item.userId}, 
             id: {item.id},
             title: {item.title},
             completed: {String(item.completed)}
           </div>
-          : ''
-        )}
+        ))}
       </div>
     </div>
   );
 };
 
-export default App;
+export default ApiTest3;
