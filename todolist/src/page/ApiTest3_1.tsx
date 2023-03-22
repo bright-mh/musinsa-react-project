@@ -7,7 +7,7 @@ interface DataType {
   completed: boolean;
 };
 
-const ApiTest3 = () => {
+const ApiTest3_1 = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
   const [indexNumber, setIndexNumber] = useState<number>(0);
   const [dataList, setDataList] = useState<Array<DataType>>([]);
@@ -21,8 +21,8 @@ const ApiTest3 = () => {
   const handleClickApi = () => {
     if (indexNumber === 10) return;
     setIndexNumber(prev => prev + 1);
-    setDataList([...dataList, todoData[indexNumber]])
-    // setDataList((prevDataList) =>[...prevDataList, todoData[indexNumber]])
+    // setDataList([...dataList, todoData[indexNumber]])
+    setDataList((prevDataList) => [...prevDataList, todoData[indexNumber]])
   }
 
   return (
@@ -44,4 +44,4 @@ const ApiTest3 = () => {
   );
 };
 
-export default ApiTest3;
+export default ApiTest3_1;
