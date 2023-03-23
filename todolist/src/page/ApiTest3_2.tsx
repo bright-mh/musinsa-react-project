@@ -16,10 +16,11 @@ interface DataType {
   */
 const ApiTest3_2 = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
-  const [no, setNo] = useState(1);
-  const [isDataShow, setIsDataShow] = useState(false);
+  const [no, setNo] = useState(0);
 
   useEffect(() => {
+    if(no === 0) return;
+
     fetch(`https://jsonplaceholder.typicode.com/todos/${no}`)
     .then((response) => response.json())
     .then((data) => setTodoData((prevTodoData) => [...prevTodoData, data]));
@@ -27,8 +28,7 @@ const ApiTest3_2 = () => {
 
   const handleClickApi = () => {
     if(no === 10) return;
-    setNo(prevNo => isDataShow ? prevNo + 1 : prevNo);
-    setIsDataShow(true);
+    setNo(prevNo => prevNo + 1);
   }
 
   return (
@@ -37,14 +37,15 @@ const ApiTest3_2 = () => {
       <button onClick={handleClickApi}>API 호출</button>
       <hr />
         <div>
-          {isDataShow && todoData.map((item, index) => 
-            <div key={index}>
+          {todoData.length ? todoData.map((item) => 
+            <div key={item.id}>
               userId: {item.userId}, 
               id: {item.id},
               title: {item.title},
               completed: {String(item.completed)}
             </div>
-          )}
+          ):
+          <div>데이터가 없습니다.</div>}
         </div>
     </div>
   );

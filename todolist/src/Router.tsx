@@ -7,6 +7,7 @@ import TodoList from './page/TodoList';
 import ApiTest3_1 from './page/ApiTest3_1';
 import ApiTest3_2 from './page/ApiTest3_2';
 import ApiTest3_3 from './page/ApiTest3_3';
+import ApiTest3_3_1Page from './page/ApiTest3_3_1Page';
 
 export const TodayContext = createContext('');
 
@@ -25,6 +26,7 @@ const Router = () => {
           <Route path='/apitest3_1' element={<ApiTest3_1 />} />
           <Route path='/apitest3_2' element={<ApiTest3_2 />} />
           <Route path='/apiTest3_3' element={<ApiTest3_3 />} />
+          <Route path='/ApiTest3_3_1Page' element={<ApiTest3_3_1Page />} />
         </Routes>
       </BrowserRouter>
     </TodayContext.Provider>

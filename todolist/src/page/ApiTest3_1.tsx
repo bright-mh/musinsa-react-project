@@ -9,7 +9,7 @@ interface DataType {
 
 const ApiTest3_1 = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
-  const [indexNumber, setIndexNumber] = useState<number>(0);
+  const [indexNumber, setIndexNumber] = useState(0);
   const [dataList, setDataList] = useState<Array<DataType>>([]);
 
   useEffect(() => {
