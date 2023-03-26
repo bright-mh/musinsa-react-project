@@ -7,7 +7,7 @@ interface DataType {
   completed: boolean;
 };
 
-const ApiTest2 = () => {
+const ApiTest2_page = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
 
   const handleClickApi = () => {
@@ -37,4 +37,4 @@ const ApiTest2 = () => {
   );
 };
 
-export default ApiTest2;
+export default ApiTest2_page;

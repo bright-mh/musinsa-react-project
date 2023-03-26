@@ -14,7 +14,7 @@ interface DataType {
    *  some api call function
    * }, [no])
   */
-const ApiTest3_2 = () => {
+const ApiTest3_2_page = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
   const [no, setNo] = useState(0);
 
@@ -51,4 +51,4 @@ const ApiTest3_2 = () => {
   );
 };
 
-export default ApiTest3_2;
+export default ApiTest3_2_page;

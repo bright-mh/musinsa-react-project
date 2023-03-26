@@ -7,7 +7,7 @@ interface DataType {
   completed: boolean;
 };
 
-const ApiTest3_1 = () => {
+const ApiTest3_1_page = () => {
   const [todoData, setTodoData] = useState<Array<DataType>>([]);
   const [indexNumber, setIndexNumber] = useState(0);
   const [dataList, setDataList] = useState<Array<DataType>>([]);
@@ -44,4 +44,4 @@ const ApiTest3_1 = () => {
   );
 };
 
-export default ApiTest3_1;
+export default ApiTest3_1_page;
