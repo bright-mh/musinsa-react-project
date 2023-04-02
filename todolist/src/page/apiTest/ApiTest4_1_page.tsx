@@ -9,12 +9,18 @@ const ApiTest4_1_page = () => {
   const [todoData, setTodoData] = useState<Array<ApiTestDataType>>([]);
   const [no, setNo] = useState(0);
 
+  const todoApi = async() => {
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/todos/${no}`);
+    setTodoData((prevTodoData) => [...prevTodoData, response.data])
+  }
+
   useEffect(() => {
     if(no === 0) return;
 
-    axios.get(`https://jsonplaceholder.typicode.com/todos/${no}`)
-    .then((response) => setTodoData((prevTodoData) => [...prevTodoData, response.data]))
-    .catch((error) => console.log(error));
+    // axios.get(`https://jsonplaceholder.typicode.com/todos/${no}`)
+    // .then((response) => setTodoData((prevTodoData) => [...prevTodoData, response.data]))
+    // .catch((error) => console.log(error));
+    todoApi();
   }, [no])
 
   const handleClickApi = () => {
